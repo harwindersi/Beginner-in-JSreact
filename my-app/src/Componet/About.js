@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function About() {
+  const[mystyle,setMystyle] = useState({
+    color: "black",
+    backgroundColor: "white",
+  })
+  const[btntext,setBtntxt] = useState ("dark mode enable")  
+  const toggle=()=>{
+    if(mystyle.color==="white"){
+      setMystyle({
+        color: "black",
+        backgroundColor: "white",
+      })
+      setBtntxt("dark mode enable")
+    }
+    else {
+      setMystyle({
+        color: "white",
+        backgroundColor: "black",
+      })
+     setBtntxt("light mode enable")
+    }
+    }
+    
   return (
-    <div>
-        <h1>About js</h1>
-      <div className="accordion" id="accordionExample">
-  <div className="accordion-item">
-    <h2 className="accordion-header" id="headingOne">
+    <div style={mystyle}>
+        <h1>About js Lorem ipsum dolor sit amet.</h1>
+      <div className="accordion" id="accordionExample" >
+  <div className="accordion-item" style={mystyle}>
+    <h2 className="accordion-header" id="headingOne" >
       <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         Accordion Item #1
       </button>
@@ -42,7 +64,7 @@ function About() {
     </div>
   </div>
 </div>
- <button className='btn btn-primary my-2'>dark mode enable</button>
+ <button className='btn btn-primary my-2' onClick={toggle}>{btntext}</button>
     </div>
   )
 }
