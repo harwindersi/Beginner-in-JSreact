@@ -4,7 +4,9 @@ function Textarea(props) {
    const[Text,setText] = useState("")
       const changed=(event)=>{
         setText(event.target.value)}
+        
       const clicked=()=>{
+          
         let newtext = Text.toLocaleUpperCase();
            setText(newtext);}
       
